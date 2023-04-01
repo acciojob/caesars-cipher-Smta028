@@ -1,5 +1,3 @@
-// Your Script here.
-
 const lookup = {
   'A': 'N','B': 'O','C': 'P','D': 'Q',
   'E': 'R','F': 'S','G': 'T','H': 'U',
@@ -13,12 +11,25 @@ const lookup = {
 function rot13(encodedStr){
    let decodedArr = []; // Your Result goes here
   // Only change code below this line
+	var encryptedArr = encodedStr.split(" ");       //['SERR','YBIR?', 'NPPVBWBO']
 
-  return ;//return decodedArr
+	for(var index = 0; index<encryptedArr.length; index++){
+		var encWord = encryptedArr[index];
+		var decryptedWord = ""; 
+
+		for(var j = 0;j<encWord.length;j++){
+			decryptedWord = decryptedWord + lookup[encWord.charAt(j)]; 
+		}
+
+		decodedArr.push(decryptedWord);
+	}
+	
+
+  return decodedArr.join(" ");//return decodedArr
 }
 
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
 
-// console.log(rot13("SERR YBIR? NPPVBWBO"));
+console.log(rot13("SERR YBIR? NPPVBWBO"));
 
 module.exports = rot13;
